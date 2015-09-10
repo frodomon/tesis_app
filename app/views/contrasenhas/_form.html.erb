@@ -1,0 +1,29 @@
+<%= form_for(@contrasenha) do |f| %>
+  <% if @contrasenha.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contrasenha.errors.count, "error") %> prohibited this contrasenha from being saved:</h2>
+
+      <ul>
+      <% @contrasenha.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :contrasenha %><br>
+    <%= f.text_field :contrasenha %>
+  </div>
+  <div class="field">
+    <%= f.label :fecCreacion %><br>
+    <%= f.date_select :fecCreacion %>
+  </div>
+  <div class="field">
+    <%= f.label :fecVencimiento %><br>
+    <%= f.date_select :fecVencimiento %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

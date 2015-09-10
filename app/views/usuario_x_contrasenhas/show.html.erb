@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @usuario_x_contrasenha.usuario_id %>
+</p>
+
+<p>
+  <strong>Contrasenha:</strong>
+  <%= @usuario_x_contrasenha.contrasenha_id %>
+</p>
+
+<%= link_to 'Edit', edit_usuario_x_contrasenha_path(@usuario_x_contrasenha) %> |
+<%= link_to 'Back', usuario_x_contrasenhas_path %>

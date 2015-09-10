@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  apePaterno: MyString
+  apeMaterno: MyString
+  distrito_id: 1
+  fecNac: 2015-09-10
+  sexo: 1
+  email: MyString
+  telFijo: MyString
+  telMovil: MyString
+  alias: MyString
+  saldo: 1.5
+
+two:
+  nombre: MyString
+  apePaterno: MyString
+  apeMaterno: MyString
+  distrito_id: 1
+  fecNac: 2015-09-10
+  sexo: 1
+  email: MyString
+  telFijo: MyString
+  telMovil: MyString
+  alias: MyString
+  saldo: 1.5
