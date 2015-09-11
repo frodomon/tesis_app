@@ -80,7 +80,16 @@ class UsuariosController < ApplicationController
   end
 
   def login 
-   @ws_usuario= Usuario.find(:all, :select => 'usuarios.id as id, usuarios.alias as alias, usuarios.nombre as nombre, usuarios.apePaterno as apepaterno, usuarios.apeMaterno as apematerno, contrasenhas.contrasenha as constrasenha, contrasenhas.fecCreacion as fecha', :joins=> 'INNER JOIN usuario_x_contrasenhas on usuario_x_contrasenhas.usuario_id = usuarios.id INNER JOIN contrasenhas on contrasenhas.id=usuario_x_contrasenhas.contrasenha_id', :group => 'usuarios.id, usuarios.alias, usuarios.nombre, usuarios.apePaterno, usuarios.apeMaterno, contrasenhas.contrasenha', :conditions=>["alias = ?", params[:alias]], :order => "contrasenhas.fecCreacion DESC", :limit =>"1" )
+    @usuario = Usuario.where(alias: params[:alias])
+    user_id = @usuario.map(&:id)
+    @uxc = UsuarioXContrasenha.find_by_sql ["SELECT * FROM usuario_x_contrasenhas WHERE (usuario_id = ?) ORDER BY created_at DESC LIMIT 1", user_id]
+    pwd_id = @uxc.map(&:contrasenha_id)
+    @pwd = Contrasenha.find_by_sql ["SELECT * FROM contrasenhas WHERE (contrasenhas.id = ?)",pwd_id]
+    pwd = @pwd.map(&:contrasenha)[0]
+    input_pwd = params[:pwd]
+    if (pwd.eql?(input_pwd)) then @ws_usuario = '{ "login" : true }'
+    else @ws_usuario = '{ "login" : false }'
+    end
 
     respond_to do |format|
       format.html # index.html.erb
