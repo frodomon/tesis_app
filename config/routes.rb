@@ -1,5 +1,13 @@
 TesisApp::Application.routes.draw do
-  get '/usuarios/login/:alias/:pwd(.:format)'=>"usuarios#login"
+  resources :ubigeos
+
+  resources :user_x_passwords
+
+  resources :passwords
+
+  resources :users
+
+  get '/users/login/:alias/:pwd(.:format)'=>"users#login"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

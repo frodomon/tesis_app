@@ -3,7 +3,7 @@ $(document).ready(function(){
   		event.preventDefault();
   		var alias = $("#alias").val()
   		var pwd = $("#password").val()
-  		var jsonUrl = "http://0.0.0.0:3000/usuarios/login/"+alias+"/"+pwd+".json"
+  		var jsonUrl = "http://0.0.0.0:3000/users/login/"+alias+"/"+pwd+".json"
   		$.getJSON(jsonUrl, function(data){
   			if (data.login){
   				alert("Login Succesful")

@@ -11,40 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150923122612) do
+ActiveRecord::Schema.define(version: 20150924193516) do
 
-  create_table "contrasenhas", force: true do |t|
-    t.string   "contrasenha"
-    t.date     "fecCreacion"
-    t.date     "fecVencimiento"
+  create_table "passwords", force: true do |t|
+    t.string   "password"
+    t.date     "dueDate"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "ubigeos", force: true do |t|
-    t.string  "name"
-    t.integer "parent_id"
-  end
-
-  create_table "usuario_x_contrasenhas", force: true do |t|
-    t.integer  "usuario_id"
-    t.integer  "contrasenha_id"
+    t.string   "name"
+    t.integer  "parent_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "usuarios", force: true do |t|
-    t.string   "nombre"
-    t.string   "apePaterno"
-    t.string   "apeMaterno"
-    t.integer  "distrito_id"
-    t.date     "fecNac"
-    t.integer  "sexo"
+  create_table "user_x_passwords", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "password_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "lastName"
+    t.integer  "ubigeo_id"
+    t.date     "birthDate"
+    t.integer  "genre"
     t.string   "email"
-    t.string   "telFijo"
-    t.string   "telMovil"
+    t.string   "phone"
+    t.string   "mobile"
     t.string   "alias"
-    t.float    "saldo"
+    t.float    "balance"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
