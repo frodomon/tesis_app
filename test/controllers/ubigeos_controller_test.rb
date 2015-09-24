@@ -18,7 +18,7 @@ class UbigeosControllerTest < ActionController::TestCase
 
   test "should create ubigeo" do
     assert_difference('Ubigeo.count') do
-      post :create, ubigeo: { name: @ubigeo.name, parent_id: @ubigeo.parent_id }
+      post :create, ubigeo: { name: @ubigeo.name, parent_id: @ubigeo.parent_id, ubigeo_id: @ubigeo.ubigeo_id }
     end
 
     assert_redirected_to ubigeo_path(assigns(:ubigeo))
@@ -35,7 +35,7 @@ class UbigeosControllerTest < ActionController::TestCase
   end
 
   test "should update ubigeo" do
-    patch :update, id: @ubigeo, ubigeo: { name: @ubigeo.name, parent_id: @ubigeo.parent_id }
+    patch :update, id: @ubigeo, ubigeo: { name: @ubigeo.name, parent_id: @ubigeo.parent_id, ubigeo_id: @ubigeo.ubigeo_id }
     assert_redirected_to ubigeo_path(assigns(:ubigeo))
   end
 

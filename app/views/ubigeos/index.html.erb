@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Ubigeo</th>
       <th>Name</th>
       <th>Parent</th>
       <th></th>
@@ -14,6 +15,7 @@
   <tbody>
     <% @ubigeos.each do |ubigeo| %>
       <tr>
+        <td><%= ubigeo.ubigeo_id %></td>
         <td><%= ubigeo.name %></td>
         <td><%= ubigeo.parent_id %></td>
         <td><%= link_to 'Show', ubigeo %></td>

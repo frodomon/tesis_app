@@ -69,6 +69,6 @@ class UbigeosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ubigeo_params
-      params.require(:ubigeo).permit(:name, :parent_id)
+      params.require(:ubigeo).permit(:ubigeo_id, :name, :parent_id)
     end
 end
