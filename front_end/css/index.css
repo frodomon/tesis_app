@@ -1,0 +1,21 @@
+body{
+	width:auto;
+	background-image : url("https://farm3.staticflickr.com/2844/10000973136_a8c9638682_k.jpg");
+	background-size: 100% auto;
+}
+p{
+	margin: 0 10px;
+	font: 12px/14px sans-serif;
+	color: white;
+	clear:none;
+	float:left;
+}
+.header{
+	width:auto;
+	margin:auto;
+}
+.header-left, .header-center, .header-right {
+	width:33.33%;
+	height: 15px;
+	float:left;
+}
