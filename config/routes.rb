@@ -1,10 +1,4 @@
 TesisApp::Application.routes.draw do
-  resources :usuario_x_contrasenhas
-
-  resources :contrasenhas
-
-  resources :usuarios
-
   get '/usuarios/login/:alias/:pwd(.:format)'=>"usuarios#login"
 
   # The priority is based upon order of creation: first created -> highest priority.

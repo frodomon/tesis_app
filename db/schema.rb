@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150910061121) do
+ActiveRecord::Schema.define(version: 20150923122612) do
 
   create_table "contrasenhas", force: true do |t|
     t.string   "contrasenha"
@@ -19,6 +19,11 @@ ActiveRecord::Schema.define(version: 20150910061121) do
     t.date     "fecVencimiento"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "ubigeos", force: true do |t|
+    t.string  "name"
+    t.integer "parent_id"
   end
 
   create_table "usuario_x_contrasenhas", force: true do |t|
