@@ -60,7 +60,30 @@ class UbigeosController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def departamentos
+    @ws_ubigeo = Ubigeo.find_by_sql ["select ubigeo_id, name from ubigeos where parent_id is null"]
+    
+    respond_to do |format|
+        format.html
+        format.json { render json: @ws_ubigeo }
+    end
+  end
+  def provincias
+    @ws_ubigeo = Ubigeo.where(parent_id: params[:departamento])
 
+    respond_to do |format|
+        format.html
+        format.json { render json: @ws_ubigeo }
+    end
+  end
+  def distritos
+    @ws_ubigeo = Ubigeo.where(parent_id: params[:provincia])
+
+    respond_to do |format|
+        format.html
+        format.json { render json: @ws_ubigeo }
+    end
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_ubigeo

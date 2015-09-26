@@ -9,6 +9,10 @@ TesisApp::Application.routes.draw do
 
   get '/users/login/:alias/:pwd(.:format)'=>"users#login"
 
+  get '/ubigeos/ubigeos/departamentos(.:format)'=>"ubigeos#departamentos"
+  get '/ubigeos/ubigeos/provincias/:departamento(.:format)'=>"ubigeos#provincias"
+  get '/ubigeos/ubigeos/distritos/:provincia(.:format)'=>"ubigeos#distritos"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
