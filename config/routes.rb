@@ -1,4 +1,5 @@
 TesisApp::Application.routes.draw do
+  get "static_pages/home"
   resources :ubigeos
 
   resources :user_x_passwords
