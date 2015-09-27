@@ -4,8 +4,6 @@ TesisApp::Application.routes.draw do
   get "static_pages/create_user", to: "static_pages#create_user", as: 'create_user'
   resources :ubigeos
 
-  resources :user_x_passwords
-
   resources :passwords
 
   resources :users

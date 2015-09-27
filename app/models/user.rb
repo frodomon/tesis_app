@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
-	has_many :user_x_passwords
-	has_many :passwordss, :through => :user_x_passwords
+	has_and_belongs_to_many :passwords
+	has_one :ubigeo
+	accepts_nested_attributes_for :passwords
 end

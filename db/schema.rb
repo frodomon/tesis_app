@@ -20,7 +20,8 @@ ActiveRecord::Schema.define(version: 20150924203922) do
     t.datetime "updated_at"
   end
 
-  create_table "ubigeos", force: true do |t|
+  create_table "ubigeos", id: false, force: true do |t|
+    t.integer  "user_id"
     t.integer  "ubigeo_id"
     t.string   "name"
     t.integer  "parent_id"
@@ -28,12 +29,15 @@ ActiveRecord::Schema.define(version: 20150924203922) do
     t.datetime "updated_at"
   end
 
-  create_table "user_x_passwords", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "password_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  add_index "ubigeos", ["user_id"], name: "index_ubigeos_on_user_id", using: :btree
+
+  create_table "user_passwords", id: false, force: true do |t|
+    t.integer "user_id"
+    t.integer "password_id"
   end
+
+  add_index "user_passwords", ["password_id"], name: "index_user_passwords_on_password_id", using: :btree
+  add_index "user_passwords", ["user_id"], name: "index_user_passwords_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
