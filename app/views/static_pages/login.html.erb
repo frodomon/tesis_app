@@ -1,0 +1,21 @@
+<% provide(:title, "Home | Tesis App") %>
+<% content_for :header do -%>
+<%= javascript_include_tag 'login' %>
+<% end -%>
+<div class= "header">
+      <h1>Login</h1>
+    </div>
+    <div class= "content">
+      <form>
+      <div class="login_alias">
+        <label for="alias">Alias:</label>
+        <input type="text" id="alias" name="alias"/>
+      </div>
+      <div class="login_pwd">
+        <label for="password">Password:</label>
+        <input type="text" id="password" name="password"/>
+      </div>
+      <div class="button">
+        <button type="submit">Login</button>
+      </div>
+    </div>

@@ -57,7 +57,7 @@ $(document).ready(function(){
       user.mobile = "9994695369"
       user.alias = "gordons"
       user.balance = 0
-      var userjson = JSON.stringify('{"user"=>'+ user +'}');
+      var userjson = JSON.stringify(user);
       console.log(userjson)
       $.post(
         '/users',

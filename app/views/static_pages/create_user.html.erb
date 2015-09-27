@@ -1,0 +1,87 @@
+<% provide(:title, "Home | Tesis App") %>
+<% content_for :header do -%>
+<%= stylesheet_link_tag 'users' %>
+<%= javascript_include_tag 'users' %>
+<% end -%>
+<div class= "header">
+    </div>
+    <div class= "content">
+      <h1>Crear Usuario</h1>
+      <form>
+        <div class="personal_information">
+          <h2>Información personal</h2>
+          <div class="nombres">
+            <label for="nombres">Nombres:</label>
+            <input type="text" id="nombres" name="nombres"/>
+          </div>
+          <div class="apellidos">
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" name="apellidos"/>
+          </div>
+          <div class="departamento">
+            <label>Departamento:</label>
+            <select id="departamento">
+              <option value = "default" selected>Seleccione un Departamento</option>
+            </select>
+          </div>
+          <div class="provincia">
+            <label>Provincia:</label>
+            <select id="provincia">
+              <option value = "default" selected>Seleccione una Provincia</option>
+            </select>
+          </div>
+          <div class="distrito">
+            <label>Distrito:</label>
+            <select id="distrito">
+              <option value = "default" selected>Seleccione un Distrito</option>
+            </select>
+          </div>
+          <div class="fechaNac">
+            <label for="fechaNac">Fecha de Nacimiento:</label>
+            <input type="date" id='FechaNac' name="bday">
+          </div>
+          <div class="sexo">
+            <label>Genero:</label>
+            <input type="radio" name="sex" value="0" checked/>Masculino
+            <input type="radio" name="sex" value="1"/>Femenino
+          </div>
+        </div>
+        <div class="contact_information">
+          <h2>Informacion de Contacto</h2>
+          <div class="email">
+            <label for="email">Correo Electronico:</label>
+            <input type="email" id="email" name="email"/>
+          </div>
+          <div class="email_validate">
+            <label for="email2">Confirmar Correo Electronico:</label>
+            <input type="email2" id="email2" name="email2"/>
+          </div>
+          <div class="phone">
+            <label for="phone">Telefono Fijo:</label>
+            <input type="tel" id="phone" name="phone"/>
+          </div>
+          <div class="mobile">
+            <label for="mobile">Telefono Movil:</label>
+            <input type="tel" id="mobile" name="mobile"/>
+          </div>
+        </div>
+        <div class="login_information">
+          <h2>Usuario y Contraseña</h2>
+          <div class="alias">
+            <label for="alias">Alias:</label>
+            <input type="text" id="alias" name="alias"/>
+          </div>
+          <div class="password">
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password"/>
+          </div>
+          <div class="password_validate">
+            <label for="password2">Confirma Contraseña:</label>
+            <input type="password" id="password2" name="password2"/>
+          </div>
+        </div>
+        <div class="button">
+          <button type="submit">Crear Usuario</button>
+        </div>
+      </form>
+    </div>

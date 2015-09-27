@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
 <head>
-  <title>TesisApp</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <meta charset="utf-8">
+  <title><%= yield(:title) %></title>
+  <%= javascript_include_tag 'jquery-2.1.4.min' %>
+  <%= yield :header %>
   <%= csrf_meta_tags %>
 </head>
 <body>
