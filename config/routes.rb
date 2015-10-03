@@ -2,17 +2,18 @@ TesisApp::Application.routes.draw do
   root "static_pages#home"
   get "static_pages/login", to: "static_pages#login", as: 'login'
   get "static_pages/create_user", to: "static_pages#create_user", as: 'create_user'
-  resources :ubigeos
+  resources :ubigeos 
 
-  resources :passwords
-
-  resources :users
+  resources :users do
+    resources :passwords
+  end
 
   get '/users/login/:alias/:pwd(.:format)'=>"users#login"
 
-  get '/ubigeos/ubigeos/departamentos(.:format)'=>"ubigeos#departamentos"
-  get '/ubigeos/ubigeos/provincias/:departamento(.:format)'=>"ubigeos#provincias"
-  get '/ubigeos/ubigeos/distritos/:provincia(.:format)'=>"ubigeos#distritos"
+  get '/ubigeo/get/departamentos(.:format)'=>"ubigeos#get_departamentos"
+  get '/ubigeo/get/provincias/:departamento(.:format)'=>"ubigeos#get_provincias"
+  get '/ubigeo/get/distritos/:provincia(.:format)'=>"ubigeos#get_distritos"
+  get '/ubigeo/get/ubigeo/:ubigeo_id(.:format)' =>"ubigeos#get_ubigeo"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

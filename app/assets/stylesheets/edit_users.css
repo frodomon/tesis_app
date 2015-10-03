@@ -1,0 +1,16 @@
+.header{
+	width:auto;
+	height:90px;
+	background-color: #1A5BE8;
+}
+body{
+	background-color: #E1E1E3;
+}
+.content{
+	background-color: #fff;
+	width:60%;
+	margin:auto;
+}
+#user_ubigeo_id{
+	display: block;
+}

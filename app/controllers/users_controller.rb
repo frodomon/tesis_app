@@ -19,13 +19,14 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @password = @user.passwords.find(params[:id])
   end
 
   # POST /users
   # POST /users.json
   def create
     @user = User.new(user_params)
-
+    @passwords = @user.passwords.build({password: params[:user][:password], dueDate: Time.now + 90.days})
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
@@ -62,15 +63,7 @@ class UsersController < ApplicationController
   end
   def login 
     @user = User.where(alias: params[:alias])
-    user_id = @user.map(&:id)
-    @uxp = UserXPassword.find_by_sql ["SELECT * FROM user_x_passwords WHERE (user_id = ?) ORDER BY created_at DESC LIMIT 1", user_id]
-    pwd_id = @uxp.map(&:password_id)
-    @pwd = Password.find_by_sql ["SELECT * FROM passwords WHERE (passwords.id = ?)",pwd_id]
-    pwd = @pwd.map(&:password)[0]
-    input_pwd = params[:pwd]
-    if (pwd.eql?(input_pwd)) then @ws_user = '{ "login" : true }'
-    else @ws_user = '{ "login" : false }'
-    end
+    @ws_user = @user.password
 
     respond_to do |format|
       format.html # index.html.erb
@@ -87,6 +80,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :lastName, :ubigeo_id, :birthDate, :genre, :email, :phone, :mobile, :alias, :balance)
+      params.require(:user).permit(:name, :lastName, :ubigeo_id, :birthDate, :genre, :email, :phone, :mobile, :alias, :balance, passwords_attributes:[:password])
     end
 end

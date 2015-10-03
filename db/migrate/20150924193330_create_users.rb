@@ -3,9 +3,9 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.string :name
       t.string :lastName
-      t.integer :ubigeo_id
+      t.references :ubigeo, index: true, foreign_key: true
       t.date :birthDate
-      t.integer :genre
+      t.string :genre, :limit =>1
       t.string :email
       t.string :phone
       t.string :mobile

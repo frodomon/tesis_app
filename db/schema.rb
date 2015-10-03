@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(version: 20150924203922) do
     t.datetime "updated_at"
   end
 
+  create_table "passwords_users", id: false, force: true do |t|
+    t.integer "user_id"
+    t.integer "password_id"
+  end
+
+  add_index "passwords_users", ["password_id"], name: "index_passwords_users_on_password_id", using: :btree
+  add_index "passwords_users", ["user_id"], name: "index_passwords_users_on_user_id", using: :btree
+
   create_table "ubigeos", id: false, force: true do |t|
     t.integer  "user_id"
     t.integer  "ubigeo_id"
@@ -31,20 +39,12 @@ ActiveRecord::Schema.define(version: 20150924203922) do
 
   add_index "ubigeos", ["user_id"], name: "index_ubigeos_on_user_id", using: :btree
 
-  create_table "user_passwords", id: false, force: true do |t|
-    t.integer "user_id"
-    t.integer "password_id"
-  end
-
-  add_index "user_passwords", ["password_id"], name: "index_user_passwords_on_password_id", using: :btree
-  add_index "user_passwords", ["user_id"], name: "index_user_passwords_on_user_id", using: :btree
-
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "lastName"
     t.integer  "ubigeo_id"
     t.date     "birthDate"
-    t.integer  "genre"
+    t.string   "genre",      limit: 1
     t.string   "email"
     t.string   "phone"
     t.string   "mobile"
@@ -53,5 +53,7 @@ ActiveRecord::Schema.define(version: 20150924203922) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "users", ["ubigeo_id"], name: "index_users_on_ubigeo_id", using: :btree
 
 end

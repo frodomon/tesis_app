@@ -60,15 +60,15 @@ class UbigeosController < ApplicationController
       format.json { head :no_content }
     end
   end
-  def departamentos
-    @ws_ubigeo = Ubigeo.find_by_sql ["select ubigeo_id, name from ubigeos where parent_id is null"]
+  def get_departamentos
+    @ws_ubigeo = Ubigeo.find_by_sql ["select ubigeo_id, name, parent_id from ubigeos where parent_id is null"]
     
     respond_to do |format|
         format.html
         format.json { render json: @ws_ubigeo }
     end
   end
-  def provincias
+  def get_provincias
     @ws_ubigeo = Ubigeo.where(parent_id: params[:departamento])
 
     respond_to do |format|
@@ -76,12 +76,20 @@ class UbigeosController < ApplicationController
         format.json { render json: @ws_ubigeo }
     end
   end
-  def distritos
+  def get_distritos
     @ws_ubigeo = Ubigeo.where(parent_id: params[:provincia])
 
     respond_to do |format|
         format.html
         format.json { render json: @ws_ubigeo }
+    end
+  end
+  def get_ubigeo
+    @ubigeo = Ubigeo.find(params[:ubigeo_id])
+
+    respond_to do |format|
+        format.html
+        format.json { render json: @ubigeo }
     end
   end
   private

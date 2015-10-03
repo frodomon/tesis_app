@@ -1,6 +1,13 @@
-<h1>Editing user</h1>
+<% provide(:title, "Actualizar Usuario | Tesis App") %>
+<% content_for :header do -%>
+<%= javascript_include_tag 'edit_users' %>
+<%= stylesheet_link_tag 'edit_users' %>
+<% end -%>
+<div class= "content">
+<h1>Actualizar Usuario</h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Show', @user %> |
 <%= link_to 'Back', users_path %>
+</div>
