@@ -74,12 +74,14 @@
       <%= f.label :alias %>
       <%= f.text_field :alias %>
     </div>
-    <%= fields_for(@user, @user.passwords.build) do |g| %>
+     
       <div class="password">
-        <%= g.label :password %>
-        <%= g.password_field :password %>
+        <%= f.fields_for :passwords do |g| %>
+          <%= g.label :password %>
+          <%= g.password_field :password %>
+        <% end %>  
       </div>
-    <% end %>
+ 
   </div>
   <div class="actions">
     <%= f.submit %>

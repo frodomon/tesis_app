@@ -3,4 +3,5 @@ class User < ActiveRecord::Base
   	validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
 	has_and_belongs_to_many :passwords
 	has_one :ubigeo
+	accepts_nested_attributes_for :passwords
 end

@@ -13,24 +13,24 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @password = @user.passwords.last
+    @passwords = @user.passwords.last
   end
 
   # GET /users/new
   def new
     @user = User.new
+    @user.passwords.build
   end
 
   # GET /users/1/edit
   def edit
-    @passwords = @user.passwords.last
   end
 
   # POST /users
   # POST /users.json
   def create
     @user = User.new(user_params)
-    @passwords = @user.passwords.build({password: params[:user][:password], dueDate: Time.now + 90.days})
+    
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
@@ -45,7 +45,6 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    @passwords = @user.passwords.build({password: params[:user][:password], dueDate: Time.now + 90.days})
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
