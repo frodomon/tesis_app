@@ -49,6 +49,10 @@
   <strong>Balance:</strong>
   <%= @user.balance %>
 </p>
+<p>
+  <strong>Password:</strong>
+  <%= @password.password %>
+</p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

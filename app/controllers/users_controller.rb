@@ -5,11 +5,15 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    @users.each do |user|
+      @passwords = user.passwords.last
+    end
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    @password = @user.passwords.last
   end
 
   # GET /users/new
@@ -19,7 +23,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @password = @user.passwords.find(params[:id])
+    @passwords = @user.passwords.last
   end
 
   # POST /users
@@ -41,6 +45,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    @passwords = @user.passwords.build({password: params[:user][:password], dueDate: Time.now + 90.days})
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -62,8 +67,10 @@ class UsersController < ApplicationController
     end
   end
   def login 
-    @user = User.where(alias: params[:alias])
-    @ws_user = @user.password
+    @ws_user = User.where(alias: params[:alias])
+    @passwords = User.passwords
+
+
 
     respond_to do |format|
       format.html # index.html.erb

@@ -1,7 +1,6 @@
 TesisApp::Application.routes.draw do
   root "static_pages#home"
-  get "static_pages/login", to: "static_pages#login", as: 'login'
-  get "static_pages/create_user", to: "static_pages#create_user", as: 'create_user'
+  get "/login", to: "static_pages#login", as: 'login'
   resources :ubigeos 
 
   resources :users do

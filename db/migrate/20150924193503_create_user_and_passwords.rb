@@ -1,10 +1,12 @@
 class CreateTableUserAndPasswords < ActiveRecord::Migration
-  def self.up
-    create_table :users_passwords, id: false do |t|
-      t.references :user
-      t.references :password
+  def change
+    create_table :passwords_users, id: false do |t|
+      t.belongs_to :user, index: true
+      t.belongs_to :password, index: true
+  	end
   end
+
   def self.down
-  	drop_table :users_passwords
+  	drop_table :passwords_users
   end
 end
