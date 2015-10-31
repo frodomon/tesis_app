@@ -5,21 +5,17 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
-    @users.each do |user|
-      @passwords = user.passwords.last
-    end
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
-    @passwords = @user.passwords.last
+
   end
 
   # GET /users/new
   def new
     @user = User.new
-    @user.passwords.build
   end
 
   # GET /users/1/edit
@@ -30,7 +26,10 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    
+    @pwdsettings = PasswordSetting.last
+    @user[:dueDate] = DateTime.now + @pwdsettings[:duration]
+    @user[:profile_id] = 0
+    @user[:status] = 'A'
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
@@ -67,9 +66,6 @@ class UsersController < ApplicationController
   end
   def login 
     @ws_user = User.where(alias: params[:alias])
-    @passwords = User.passwords
-
-
 
     respond_to do |format|
       format.html # index.html.erb
@@ -86,6 +82,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :lastName, :ubigeo_id, :birthDate, :genre, :email, :phone, :mobile, :alias, :balance, passwords_attributes:[:password])
+      params.require(:user).permit(:name, :lastName, :ubigeo_id, :birthDate, :genre, :email, :phone, :mobile, :alias, :balance, :password)
     end
 end

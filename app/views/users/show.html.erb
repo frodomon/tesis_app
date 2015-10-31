@@ -46,12 +46,22 @@
 </p>
 
 <p>
-  <strong>Balance:</strong>
-  <%= @user.balance %>
+  <strong>Password:</strong>
+    <%= @user.password %>
+</p>
+
+<p>
+  <strong>DueDate:</strong>
+  <%= @user.dueDate %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @user.status %>
 </p>
 <p>
-  <strong>Password:</strong>
-    <%= @passwords.password %>
+  <strong>Profile:</strong>
+  <%= @user.profile_id %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

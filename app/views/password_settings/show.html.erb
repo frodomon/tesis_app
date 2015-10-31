@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Minlength:</strong>
+  <%= @password_setting.minLength %>
+</p>
+
+<p>
+  <strong>Minletters:</strong>
+  <%= @password_setting.minLetters %>
+</p>
+
+<p>
+  <strong>Minnumbers:</strong>
+  <%= @password_setting.minNumbers %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @password_setting.duration %>
+</p>
+
+<p>
+  <strong>Maxloginfails:</strong>
+  <%= @password_setting.maxLoginFails %>
+</p>
+
+<%= link_to 'Edit', edit_password_setting_path(@password_setting) %> |
+<%= link_to 'Back', password_settings_path %>

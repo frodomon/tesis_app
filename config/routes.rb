@@ -1,11 +1,11 @@
 TesisApp::Application.routes.draw do
+  resources :password_settings
+
   root "static_pages#home"
   get "/login", to: "static_pages#login", as: 'login'
+  
   resources :ubigeos 
-
-  resources :users do
-    resources :passwords
-  end
+  resources :users
 
   get '/users/login/:alias/:pwd(.:format)'=>"users#login"
 

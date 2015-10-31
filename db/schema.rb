@@ -11,22 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150924203922) do
+ActiveRecord::Schema.define(version: 20151031163627) do
 
-  create_table "passwords", force: true do |t|
-    t.string   "password"
-    t.date     "dueDate"
+  create_table "password_settings", force: true do |t|
+    t.integer  "minLength"
+    t.integer  "minLetters"
+    t.integer  "minNumbers"
+    t.integer  "duration"
+    t.integer  "maxLoginFails"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "passwords_users", id: false, force: true do |t|
-    t.integer "user_id"
-    t.integer "password_id"
-  end
-
-  add_index "passwords_users", ["password_id"], name: "index_passwords_users_on_password_id", using: :btree
-  add_index "passwords_users", ["user_id"], name: "index_passwords_users_on_user_id", using: :btree
 
   create_table "ubigeos", id: false, force: true do |t|
     t.integer  "user_id"
@@ -50,10 +45,17 @@ ActiveRecord::Schema.define(version: 20150924203922) do
     t.string   "mobile"
     t.string   "alias"
     t.float    "balance"
+    t.string   "password"
+    t.date     "dueDate"
+    t.string   "status",     limit: 1
+    t.integer  "profile_id"
+    t.integer  "budget_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "users", ["budget_id"], name: "index_users_on_budget_id", using: :btree
+  add_index "users", ["profile_id"], name: "index_users_on_profile_id", using: :btree
   add_index "users", ["ubigeo_id"], name: "index_users_on_ubigeo_id", using: :btree
 
 end

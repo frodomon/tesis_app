@@ -10,7 +10,11 @@ class CreateUsers < ActiveRecord::Migration
       t.string :phone
       t.string :mobile
       t.string :alias
-      t.float :balance
+      t.string :password
+      t.date :dueDate
+      t.string :status, :limit =>1
+      t.references :profile, index: true, foreign_key: true
+      t.references :budget, index: true, foreign_key: true
 
       t.timestamps
     end

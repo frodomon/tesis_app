@@ -1,0 +1,35 @@
+<h1>Listing password_settings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Minlength</th>
+      <th>Minletters</th>
+      <th>Minnumbers</th>
+      <th>Duration</th>
+      <th>Maxloginfails</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @password_settings.each do |password_setting| %>
+      <tr>
+        <td><%= password_setting.minLength %></td>
+        <td><%= password_setting.minLetters %></td>
+        <td><%= password_setting.minNumbers %></td>
+        <td><%= password_setting.duration %></td>
+        <td><%= password_setting.maxLoginFails %></td>
+        <td><%= link_to 'Show', password_setting %></td>
+        <td><%= link_to 'Edit', edit_password_setting_path(password_setting) %></td>
+        <td><%= link_to 'Destroy', password_setting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Password setting', new_password_setting_path %>

@@ -12,8 +12,10 @@
       <th>Phone</th>
       <th>Mobile</th>
       <th>Alias</th>
-      <th>Balance</th>
       <th>Password</th>
+      <th>DueDate</th>
+      <th>Status</th>
+      <th>Profile</th>
       <th></th>
       <th></th>
       <th></th>
@@ -32,10 +34,10 @@
         <td><%= user.phone %></td>
         <td><%= user.mobile %></td>
         <td><%= user.alias %></td>
-        <td><%= user.balance %></td>
-        <% user.passwords.each do |pwd|%>
-          <td><%= pwd.password %></td>
-        <% end %>
+        <td><%= user.password %></td>
+        <td><%= user.dueDate %></td>
+        <td><%= user.status %></td>
+        <td><%= user.profile_id %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
