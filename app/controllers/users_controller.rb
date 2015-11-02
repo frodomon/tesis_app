@@ -65,11 +65,13 @@ class UsersController < ApplicationController
     end
   end
   def login 
-    @ws_user = User.where(alias: params[:alias])
-
+    @user = User.where(alias: params[:alias])
+    pwd = @user.map(&:password).to_s
+    input_pwd = params[:pwd].to_s
+    if (pwd <=> input_pwd) then @ws_user = '{ "login" : true }'
+    else @ws_user = '{ "login" : false }'
+    end
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render xml: @ws_user }
       format.json { render json: @ws_user }
     end
   end

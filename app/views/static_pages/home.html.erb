@@ -1,16 +1,51 @@
 <% provide(:title, "Home | Tesis App") %>
 <% content_for :header do -%>
 <%= stylesheet_link_tag 'home' %>
+<%= javascript_include_tag 'home' %>
 <% end -%>
 <div class= "header">
-      <div class= "header-left">
+  <div class= "header-left">
+  </div>
+  <div class= "header-center">
+  </div>
+  <div class= "header-right">
+    <div class ='sign_in user_no_logged'>
+      <p id='sign_in'>Iniciar Sesión</p>
+    </div>
+    <div class ='sign_up user_no_logged'>
+      <%= link_to 'Registrarse', new_user_path %>
+    </div>
+    <div class='user_name user_logged'>
+      <p id='userName'></p>
+    </div>
+  </div>
+</div>
+<div class= "header-down sign_in_pressed">
+  <div class= "header-down-left">
+  </div>
+  <div class= "header-down-right">
+    <form>
+      <div class="login_alias">
+        <label for="alias">Usuario:</label>
+        <input type="text" id="alias" name="alias"/>
       </div>
-      <div class= "header-center">
+      <div class="login_pwd">
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password"/>
       </div>
-      <div class= "header-right">
-        <p class="sign_in"><%= link_to 'Iniciar Sesión', login_path %></p>
-        <p class ="sign_up"><%= link_to 'Registrarse', new_user_path %></p>
+      <div class="login_button">
+        <button type="submit" id='login_button'>Log In</button>
       </div>
-  	</div>
+    </form>
+  </div>
+</div>
   	<div class= "content">
+      <div class="productos">
+        <div class='comparador'>
+        </div>
+        <div class='of'>
+        </div>
+        <div class="gastos"
+        </div>
+      </div>
     </div>
