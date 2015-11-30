@@ -1,4 +1,10 @@
 TesisApp::Application.routes.draw do
+  resources :industries
+
+  resources :finnancial_entity_types
+
+  resources :finnancial_product_types
+
   resources :roles
   resources :permissions
   resources :password_settings
@@ -15,6 +21,8 @@ TesisApp::Application.routes.draw do
   get '/ubigeo/get/provincias/:departamento(.:format)'=>"ubigeos#get_provincias"
   get '/ubigeo/get/distritos/:provincia(.:format)'=>"ubigeos#get_distritos"
   get '/ubigeo/get/ubigeo/:ubigeo_id(.:format)' =>"ubigeos#get_ubigeo"
+
+  get '/rubroOF/get/rubrosPadre(.:format)'=>"industries#get_industry"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

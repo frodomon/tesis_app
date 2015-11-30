@@ -1,0 +1,11 @@
+<% provide(:title, "Actualizar Rubro| Tesis App") %>
+<% content_for :header do -%>
+<%= javascript_include_tag 'edit_industry' %>
+<% end -%>
+<div class= "content">
+	<h1>Editing industry</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @industry %> |
+<%= link_to 'Back', industries_path %>

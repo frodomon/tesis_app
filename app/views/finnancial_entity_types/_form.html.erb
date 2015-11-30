@@ -1,0 +1,21 @@
+<%= form_for(@finnancial_entity_type) do |f| %>
+  <% if @finnancial_entity_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@finnancial_entity_type.errors.count, "error") %> prohibited this finnancial_entity_type from being saved:</h2>
+
+      <ul>
+      <% @finnancial_entity_type.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

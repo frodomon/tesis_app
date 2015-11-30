@@ -1,0 +1,27 @@
+<h1>Listing finnancial_entity_types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @finnancial_entity_types.each do |finnancial_entity_type| %>
+      <tr>
+        <td><%= finnancial_entity_type.name %></td>
+        <td><%= link_to 'Show', finnancial_entity_type %></td>
+        <td><%= link_to 'Edit', edit_finnancial_entity_type_path(finnancial_entity_type) %></td>
+        <td><%= link_to 'Destroy', [:delete, finnancial_entity_type], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Finnancial entity type', new_finnancial_entity_type_path %>
