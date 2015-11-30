@@ -1,4 +1,6 @@
 TesisApp::Application.routes.draw do
+  resources :roles
+  resources :permissions
   resources :password_settings
 
   root "static_pages#home"
@@ -7,7 +9,7 @@ TesisApp::Application.routes.draw do
   resources :ubigeos 
   resources :users
 
-  get '/users/login/:alias/:pwd(.:format)'=>"users#login"
+  get '/users/login/:userName/:pwd(.:format)'=>"users#login"
 
   get '/ubigeo/get/departamentos(.:format)'=>"ubigeos#get_departamentos"
   get '/ubigeo/get/provincias/:departamento(.:format)'=>"ubigeos#get_provincias"

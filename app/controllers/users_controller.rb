@@ -65,7 +65,7 @@ class UsersController < ApplicationController
     end
   end
   def login 
-    @user = User.where(alias: params[:alias])
+    @user = User.where(alias: params[:userName])
     pwd = @user.map(&:password).to_s
     input_pwd = params[:pwd].to_s
     if (pwd <=> input_pwd) then @ws_user = '{ "login" : true }'
@@ -84,6 +84,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :lastName, :ubigeo_id, :birthDate, :genre, :email, :phone, :mobile, :alias, :balance, :password)
+      params.require(:user).permit(:name, :lastNamePat, :lastNameMat, :ubigeo, :birthDate, :genre, :email, :phone, :mobile, :userName, :balanceUSD, :balancePEN, :salaryUSD, :salaryPEN, :status, :dueDate, :password, :role)
     end
 end

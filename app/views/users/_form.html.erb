@@ -50,7 +50,7 @@
       <%= label_tag(:genre_F, "Femenino") %>
     </div>
     <div class="balance">
-      <%= f.hidden_field :balance, :value => 0.0 %>
+      <%= f.hidden_field :balancePEN, :value => 0.0 %>
     </div>
   </div>
   <div class="contact_information">
@@ -70,9 +70,9 @@
   </div>
   <div class="login_information">
     <h2>Usuario y Contraseña</h2>
-    <div class="alias">
-      <%= f.label :alias %>
-      <%= f.text_field :alias %>
+    <div class="userName">
+      <%= f.label :userName %>
+      <%= f.text_field :userName %>
     </div>
     <div class="password">
       <%= f.label :password %>
