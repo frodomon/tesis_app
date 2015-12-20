@@ -4,18 +4,23 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Lastname</th>
+      <th>LastNamePat</th>
+      <th>LastNameMat</th>
       <th>Ubigeo</th>
       <th>Birthdate</th>
       <th>Genre</th>
       <th>Email</th>
       <th>Phone</th>
       <th>Mobile</th>
-      <th>UserName/th>
+      <th>UserName</th>
       <th>Password</th>
+      <th>balancePEN</th>
+      <th>balanceUSD</th>
+      <th>salaryPEN</th>
+      <th>salaryUSD</th>
       <th>DueDate</th>
       <th>Status</th>
-      <th>Profile</th>
+      <th>Role</th>
       <th></th>
       <th></th>
       <th></th>
@@ -26,7 +31,8 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.name %></td>
-        <td><%= user.lastName %></td>
+        <td><%= user.lastNamePat %></td>
+        <td><%= user.lastNameMat %></td>
         <td><%= user.ubigeo_id %></td>
         <td><%= user.birthDate %></td>
         <td><%= user.genre %></td>
@@ -35,12 +41,16 @@
         <td><%= user.mobile %></td>
         <td><%= user.userName %></td>
         <td><%= user.password %></td>
+        <td><%= user.balancePEN %></td>
+        <td><%= user.balanceUSD %></td>
+        <td><%= user.salaryPEN %></td>
+        <td><%= user.salaryUSD %></td>
         <td><%= user.dueDate %></td>
         <td><%= user.status %></td>
-        <td><%= user.profile_id %></td>
+        <td><%= user.role_id %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', [:delete, user], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

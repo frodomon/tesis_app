@@ -17,8 +17,12 @@
       <%= f.text_field :name %>
     </div>
     <div class="apellidos">
-      <%= f.label :lastName %>
-      <%= f.text_field :lastName %>
+      <%= f.label :lastNamePat %>
+      <%= f.text_field :lastNamePat %>
+    </div>
+    <div class="apellidos">
+      <%= f.label :lastNameMat %>
+      <%= f.text_field :lastNameMat %>
     </div>
     <div class="departamento">
       <label>Departamento:</label>
@@ -49,8 +53,17 @@
       <%= f.radio_button :genre, "F" %>
       <%= label_tag(:genre_F, "Femenino") %>
     </div>
-    <div class="balance">
+    <div class="balancePEN">
       <%= f.hidden_field :balancePEN, :value => 0.0 %>
+    </div>
+    <div class="balanceUSD">
+      <%= f.hidden_field :balanceUSD, :value => 0.0 %>
+    </div>
+    <div class="salaryPEN">
+      <%= f.hidden_field :salaryPEN, :value => 0.0 %>
+    </div>
+    <div class="salaryUSD">
+      <%= f.hidden_field :salaryUSD, :value => 0.0 %>
     </div>
   </div>
   <div class="contact_information">

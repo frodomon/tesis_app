@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :delete]
 
   # GET /users
   # GET /users.json
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @pwdsettings = PasswordSetting.last
     @user[:dueDate] = DateTime.now + @pwdsettings[:duration]
-    @user[:profile_id] = 0
+    @user[:role_id] = 1
     @user[:status] = 'A'
     respond_to do |format|
       if @user.save
@@ -64,8 +64,12 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def delete
+  end
+
   def login 
-    @user = User.where(alias: params[:userName])
+    @user = User.where(userName: params[:userName])
     pwd = @user.map(&:password).to_s
     input_pwd = params[:pwd].to_s
     if (pwd <=> input_pwd) then @ws_user = '{ "login" : true }'
@@ -84,6 +88,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :lastNamePat, :lastNameMat, :ubigeo, :birthDate, :genre, :email, :phone, :mobile, :userName, :balanceUSD, :balancePEN, :salaryUSD, :salaryPEN, :status, :dueDate, :password, :role)
+      params.require(:user).permit(:name, :lastNamePat, :lastNameMat, :ubigeo_id, :birthDate, :genre, :email, :phone, :mobile, :userName, :balanceUSD, :balancePEN, :salaryUSD, :salaryPEN, :status, :dueDate, :password, :role_id)
     end
 end

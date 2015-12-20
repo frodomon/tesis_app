@@ -6,10 +6,13 @@
 </p>
 
 <p>
-  <strong>Lastname:</strong>
-  <%= @user.lastName %>
+  <strong>LastnamePat:</strong>
+  <%= @user.lastNamePat %>
 </p>
-
+<p>
+  <strong>LastnameMat:</strong>
+  <%= @user.lastNameMat %>
+</p>
 <p>
   <strong>Ubigeo:</strong>
   <%= @user.ubigeo_id %>
@@ -56,12 +59,32 @@
 </p>
 
 <p>
+  <strong>BalancePEN:</strong>
+  <%= @user.balancePEN %>
+</p>
+
+<p>
+  <strong>BalanceUSD:</strong>
+  <%= @user.balanceUSD %>
+</p>
+
+<p>
+  <strong>SalaryPEN:</strong>
+  <%= @user.salaryPEN %>
+</p>
+
+<p>
+  <strong>SalaryUSD:</strong>
+  <%= @user.salaryUSD %>
+</p>
+
+<p>
   <strong>Status:</strong>
   <%= @user.status %>
 </p>
 <p>
-  <strong>Profile:</strong>
-  <%= @user.profile_id %>
+  <strong>Role:</strong>
+  <%= @user.role_id %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
